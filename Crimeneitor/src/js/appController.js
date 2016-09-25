@@ -3,7 +3,7 @@
  * The Universal Permissive License (UPL), Version 1.0
  */
 /*
- * Your application specific code will go here
+ * Feipe Jhair PErez Ortiz
  */
 define(['ojs/ojcore', 'knockout', 'ojs/ojrouter', 'ojs/ojarraytabledatasource',
   'ojs/ojoffcanvas'],
