@@ -48,29 +48,16 @@ requirejs.config(
  * objects in the callback
  */
 require(['ojs/ojcore', 'knockout', 'appController', 'ojs/ojknockout',
-  'ojs/ojmodule', 'ojs/ojrouter', 'ojs/ojnavigationlist', 'ojs/ojbutton'],
+  'ojs/ojmodule', 'ojs/ojrouter', 'ojs/ojnavigationlist', 'ojs/ojbutton', 'ojs/ojtoolbar'],
   function (oj, ko, app) { // this callback gets executed when all required modules are loaded
 
-    function MainViewModel() {
-      var self = this;
-      self.router = app.router;
-      self.navDataSource = app.navDataSource;
-      self.navChangeHandler = app.navChangeHandler;
-      self.toggleDrawer = app.toggleDrawer;
-
-      // Sample user data
-      self.userName = ko.observable("James");
-    }
-
     $(function() {
-      
+
       function init() {
         oj.Router.sync().then(
           function () {
             // Bind your ViewModel for the content of the whole page body.
-            ko.applyBindings(new MainViewModel(), document.getElementById('globalBody'));
-            // Adjust the content top and bottom margins after the header bindings have been applied.
-            app.adjustContentPadding();
+            ko.applyBindings(app, document.getElementById('globalBody'));
           },
           function (error) {
             oj.Logger.error('Error in root start: ' + error.message);
