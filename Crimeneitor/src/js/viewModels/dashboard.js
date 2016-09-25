@@ -5,6 +5,7 @@
 /*
  * Your dashboard ViewModel code goes here
  */
+
 define(['ojs/ojcore', 'knockout', 'jquery'],
  function(oj, ko, $) {
   
@@ -38,7 +39,7 @@ define(['ojs/ojcore', 'knockout', 'jquery'],
        * @param {boolean} info.fromCache - A boolean indicating whether the module was retrieved from cache.
        */
       self.handleAttached = function(info) {
-        // Implement if needed
+        getLocation();
       };
 
 
@@ -67,6 +68,25 @@ define(['ojs/ojcore', 'knockout', 'jquery'],
       };
     }
 
+
+
+    $.getScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyAhrGjmVYArA9XebG4rnkwzPq3GHw329Hs&callback=getLocation");
+    function getLocation(){
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+      alert("Geolocation is not supported by this browser.");
+      }
+  }
+    
+    function showPosition(position) {
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: position.coords.latitude, lng: position.coords.longitude},
+        scrollwheel: false,
+        zoom: 16
+      });
+    }
+
     /*
      * Returns a constructor for the ViewModel so that the ViewModel is constrcuted
      * each time the view is displayed.  Return an instance of the ViewModel if
@@ -75,3 +95,5 @@ define(['ojs/ojcore', 'knockout', 'jquery'],
     return new DashboardViewModel();
   }
 );
+
+
