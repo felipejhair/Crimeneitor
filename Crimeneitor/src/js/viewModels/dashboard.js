@@ -6,7 +6,7 @@
  * Your dashboard ViewModel code goes here
  */
 
-define(['ojs/ojcore', 'knockout', 'jquery'],
+define(['ojs/ojcore', 'knockout', 'jquery', 'googmap', 'map'],
  function(oj, ko, $) {
   
     function DashboardViewModel() {
@@ -70,7 +70,7 @@ define(['ojs/ojcore', 'knockout', 'jquery'],
 
 
 
-    $.getScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyAhrGjmVYArA9XebG4rnkwzPq3GHw329Hs&callback=getLocation");
+    
     function getLocation(){
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);

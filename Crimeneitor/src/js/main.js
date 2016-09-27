@@ -27,7 +27,9 @@ requirejs.config(
     'ojtranslations': 'libs/oj/v2.1.0/resources',
     'text': 'libs/require/text',
     'signals': 'libs/js-signals/signals',
-    'login' : 'login'
+    'login' : 'login',
+    'googmap' : 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAhrGjmVYArA9XebG4rnkwzPq3GHw329Hs&callback=getLocation',
+    'map' : 'gmaps'
   }
   //endinjector
   ,
