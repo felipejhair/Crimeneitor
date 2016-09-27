@@ -26,7 +26,8 @@ requirejs.config(
     'ojL10n': 'libs/oj/v2.1.0/ojL10n',
     'ojtranslations': 'libs/oj/v2.1.0/resources',
     'text': 'libs/require/text',
-    'signals': 'libs/js-signals/signals'
+    'signals': 'libs/js-signals/signals',
+    'login' : 'login'
   }
   //endinjector
   ,
@@ -41,6 +42,11 @@ requirejs.config(
 }
 );
 
+
+
+
+
+
 /**
  * A top-level require call executed by the Application.
  * Although 'ojcore' and 'knockout' would be loaded in any case (they are specified as dependencies
@@ -50,6 +56,15 @@ requirejs.config(
 require(['ojs/ojcore', 'knockout', 'appController', 'ojs/ojknockout',
   'ojs/ojmodule', 'ojs/ojrouter', 'ojs/ojnavigationlist', 'ojs/ojbutton', 'ojs/ojtoolbar'],
   function (oj, ko, app) { // this callback gets executed when all required modules are loaded
+
+
+
+
+
+
+
+
+
 
     $(function() {
 

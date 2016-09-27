@@ -44,6 +44,7 @@
     <link rel="stylesheet" href="css/override.css" type="text/css"/>
 
   </head>
+
   <body class="oj-web-applayout-body">
     <!-- Template for rendering navigation items shared between nav bar and nav list -->
     <script type="text/html" id="navTemplate">
@@ -94,7 +95,7 @@
               <!-- Responsive Toolbar -->
               <div data-bind="ojComponent: {component:'ojToolbar'}">
                 <button id="userMenu"
-                  data-bind="ojComponent: {component: 'ojButton', label: userLogin,
+                  data-bind="ojComponent: {component: 'ojButton', label: nambr,
                   display: smScreen() ? 'icons' : 'all',
                   icons: smScreen() ? {start: 'oj-icon demo-appheader-avatar', end: null} : {end: 'oj-component-icon oj-button-menu-dropdown-icon'},
                   chroming: 'half', menu: '#menu1'}">
@@ -103,7 +104,8 @@
                   <li id="pref"><a href="#">Preferences</a></li>
                   <li id="help"><a href="#">Help</a></li>
                   <li id="about"><a href="#">About</a></li>
-                  <li id="out"><a href="#">Sign Out</a></li>
+                  <li id="out"><fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button></li>
                 </ul>
               </div>
             </div>
