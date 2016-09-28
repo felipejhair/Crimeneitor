@@ -5,7 +5,7 @@
 
 
 
- 
+
 
 
 
@@ -74,6 +74,7 @@
       // Application Name used in Branding Area
       self.appName = ko.observable("Crimeneitor");
       // User Info used in Global Navigation area
+      $("#logo").css("background","url(../../web/css/images/crimen.png)");
 
 
 

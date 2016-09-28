@@ -83,7 +83,7 @@ FB.api(
   function(response) {
     var startIcon = $( "#userMenu" ).ojButton( "option", "icons.start" );
      console.log(response.data.url);
-     $( "#userMenu" ).ojButton( "option", "icons.start", "smScreen() ? https://scontent.fmty1-1.fna.fbcdn.net/v/t1.0-1/p24x24/14355554_1239944189370720_6044907491475672419_n.jpg?oh=b989fe05890faac2556a0d381ea12688&oe=587421D4" );
+     $( ".imag" ).css("background","url("+response.data.url+")");
    }
   
 );

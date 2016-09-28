@@ -10,3 +10,20 @@
 	width: 100%;
 	height: 30em;
 }
+
+.avatar{
+	width: 2.25rem;
+	height: 2.25rem;
+}
+
+#userMenu:hover{
+	border-radius: 0;
+}
+
+#userMenu:active{
+	border-radius: 0;
+}
+
+.oj-button{
+	border-radius: 0;
+}
