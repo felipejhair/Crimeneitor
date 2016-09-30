@@ -27,3 +27,12 @@
 .oj-button{
 	border-radius: 0;
 }
+
+.oj-web-applayout-header{
+	background-color: skyblue;
+}
+
+.bdy{
+	background-color: honeydew;
+	background-image: url("");
+}
