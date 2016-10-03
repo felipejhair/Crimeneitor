@@ -6,13 +6,14 @@
  * Your dashboard ViewModel code goes here
  */
 
-define(['ojs/ojcore', 'knockout', 'jquery', 'googmap', 'map'],
+define(['ojs/ojcore', 'knockout', 'jquery', 'googmap', 'map', 'ojs/ojrouter', 'ojs/ojknockout'],
  function(oj, ko, $) {
   
     function DashboardViewModel() {
       var self = this;
-      // Below are a subset of the ViewModel methods invoked by the ojModule binding
-      // Please reference the ojModule jsDoc for additionaly available methods.
+      
+      var smQuery = oj.ResponsiveUtils.getFrameworkQuery(oj.ResponsiveUtils.FRAMEWORK_QUERY_KEY.SM_ONLY);
+      self.smScreen = oj.ResponsiveKnockoutUtils.createMediaQueryObservable(smQuery);
 
       /**
        * Optional ViewModel method invoked when this ViewModel is about to be
@@ -70,22 +71,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'googmap', 'map'],
 
 
 
-    
-    function getLocation(){
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-      } else {
-      alert("Geolocation is not supported by this browser.");
-      }
-  }
-    
-    function showPosition(position) {
-      var map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: position.coords.latitude, lng: position.coords.longitude},
-        scrollwheel: false,
-        zoom: 16
-      });
-    }
+
 
     /*
      * Returns a constructor for the ViewModel so that the ViewModel is constrcuted
