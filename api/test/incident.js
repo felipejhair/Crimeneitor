@@ -36,11 +36,70 @@ describe('Incident API', function() {
         var incidents = [
                 {
                     description: "Asalto de pruebas 1",
-                    geo: [ -100.3974197, 25.608602 ]
+                    geo: [ -102.141631, 28.591869 ],
+                    pictures: [],
+                    burglars: [
+                        {
+                            gender: "Masculino",
+                            age: "21-25",
+                            description: "Cholo rapado"
+                        }
+                    ] },{ description: "Bajando del camión se me acercó un cholo corriendo",
+                    geo: [ -100.3174197, 25.678602 ],
+                    pictures: [],
+                    burglars: [
+                        {
+                            gender: "Masculino",
+                            age: "21-25",
+                            description: "Cholo rapado"
+                        }
+                    ]
                 },
                 {
-                    description: "Bajando del camión se me acercó un cholo corriendo",
-                    geo: [ -100.3174197, 25.678602 ]
+                    description: "Al hacer fila para pagar el boleto del estacionamiento",
+                    geo: [ -100.316333, 25.799816 ],
+                    pictures: [],
+                    burglars: [
+                        {
+                            gender: "Masculino",
+                            age: "26-35",
+                            description: "Señor blanco con lentes oscuro y bigote"
+                        }
+                    ]
+                },
+                {
+                    description: "Caminando a la parada del camión por la avenida venían de frente y no les pude sacar la vuelta",
+                    geo: [ -100.3170397, 25.674652 ],
+                    pictures: [],
+                    burglars: [
+                        {
+                            gender: "Masculino",
+                            age: "15-20",
+                            description: "Cholo con camisa tumbada"
+                        },
+                        {
+                            gender: "Masculino",
+                            age: "15-20",
+                            description: "Cholo con pantalón tumbado"
+                        },
+                        {
+                            gender: "Masculino",
+                            age: "15-20",
+                            description: "Cholo con camisa tumbada"
+                        }
+                    ]
+                },
+                {
+                    description: "Caminando por la calle se paró un taxista y me asalto",
+                    geo: [ -100.188391, 25.776216 ],
+                    pictures: [],
+                    burglars: [
+                        {
+                            gender: "Masculino",
+                            age: "Mayor de 35",
+                            description: "Señor moreno y gordo"
+                        }
+                    ]
                 }
             ];
 
@@ -61,30 +120,30 @@ describe('Incident API', function() {
                 results = JSON.parse(resp.text).incidents;
             });
 
-            assert.equal(results.length, 2);
+            assert.equal(results.length, 5);
             assert.equal(results[0].description, 'Asalto de pruebas 1');
             done();
         });
     });
 
-    //it('can fetch incidents within radius', function(done) {
-    //    var url = URL_ROOT + '/incidentes';
+    it('can fetch incidents within radius', function(done) {
+        var url = URL_ROOT + '/incidents';
 
-    //    url += '?distance=500';
-    //    url += '&lat=25.674652';
-    //    url += '&lng=-100.3170397';
+        url += '?distance=500';
+        url += '&lat=25.674652';
+        url += '&lng=-100.3170397';
 
-    //    superagent.get(url, function(error, resp) {
-    //        assert.ifError(error);
-    //        var results;
+        superagent.get(url, function(error, resp) {
+            assert.ifError(error);
+            var results;
 
-    //        assert.doesNotThrow(function() {
-    //            results = JSON.parse(resp.text).incidentes;
-    //        });
+            assert.doesNotThrow(function() {
+                results = JSON.parse(resp.text).incidents;
+            });
 
-    //        assert.equal(results.length, 5);
-    //        assert.equal(results[0].description, 'Asalto de pruebas 1');
-    //        done();
-    //    });
-    //});
+            assert.equal(results.length, 2);
+            assert.equal(results[0].burglars.length, 3);
+            done();
+        });
+    });
 })

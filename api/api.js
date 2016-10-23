@@ -52,11 +52,24 @@ module.exports = function(wagner) {
     // ========= Incident =========
     api.get('/incidents', wagner.invoke(function(Incident) {
         return function(req, resp) {
-            var distance = req.query.distance || 2000,
+            var distance = req.query.distance || 2000, // meters
                 lng = req.query.lng,
-                lat = req.query.lat;
+                lat = req.query.lat,
+                query = {};
 
-            Incident.find({})
+            distance /= 6371;   // Distance meters to radians
+                                // Earth radius in Km is 6371
+
+            if (lng && lat) {
+                query = {
+                    geo: {
+                        $near: [ lng, lat ],
+                        $maxDistance: distance
+                    }
+                };
+            }
+
+            Incident.find(query)
                 .exec(handleMany.bind(null, 'incidents', resp));
         };
     }));
