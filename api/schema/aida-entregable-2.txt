@@ -1,0 +1,65 @@
+metodologia de desarrollo para el siguiente entregabla, fases, consiste en esto, tiene fases que... 
+ejemplo metodologia de cascada
+SCRUM, desarrollo agil
+
+metodologia que vamos a seguir para realizar el proyecto, desde principio a fin
+
+
+oracle jet
+
+volver a enviar entregable
+modificar  descripcion del problema, solo poner el problema
+
+lo que va a registrar la aplicacion y lo que no (terremotos, inundaciones, robos)
+
+el alcance, osea la zona en lo que vamos a trabajar con la aplicaicon
+
+clasificar tipos de registros( robos, accidentes, robos a personas, robos a casas, etc.)
+
+tipo_asalto = [
+	"Asalto personal",
+	"Asalto a mano armada",
+	"Daño a vehiculo",
+	"Robo de vehiculo",
+	"Robo a hogar",
+	"Agresion fisica",
+	"Asalto en transporte publico"
+]
+
+user => {
+	id: "",
+	facebook_token: ""
+}
+vehiculo => {
+	tipo: [
+		"Carro",
+		"Camioneta",
+		"Moto",
+		"Otro"
+	],
+	descripcion: ""
+}
+asaltante => {
+	descripcion: ""
+}
+
+incidente => {
+	tipo: tipo_asalto[INDEX],
+	descripcion: "",
+	fecha: "",
+	coordenadas: {
+		latititude: "",
+		longitude: ""
+	},
+	user: {
+		MODELO_USUARIO
+	},
+	auto_asaltante: MODELO_VEHICULO,
+	asaltante: [
+		{
+			MODELO_ASALTANTE
+		}
+	],
+	imagen: [
+	]
+}
