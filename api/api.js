@@ -49,6 +49,18 @@ module.exports = function(wagner) {
         }
     }));
 
+    // ========= Incident =========
+    api.get('/incidents', wagner.invoke(function(Incident) {
+        return function(req, resp) {
+            var distance = req.query.distance || 2000,
+                lng = req.query.lng,
+                lat = req.query.lat;
+
+            Incident.find({})
+                .exec(handleMany.bind(null, 'incidents', resp));
+        };
+    }));
+
     return api;
 };
 
