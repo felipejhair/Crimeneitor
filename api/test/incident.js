@@ -135,14 +135,15 @@ describe('Incident API', function() {
 
         superagent.get(url, function(error, resp) {
             assert.ifError(error);
-            var results;
+            assert.equal(resp.status, status.OK);
+            var result;
 
             assert.doesNotThrow(function() {
-                results = JSON.parse(resp.text).incidents;
+                result = JSON.parse(resp.text);
             });
 
-            assert.equal(results.length, 2);
-            assert.equal(results[0].burglars.length, 3);
+            assert.equal(result.incidents.length, 2);
+            assert.equal(result.incidents[0].burglars.length, 3);
             done();
         });
     });
