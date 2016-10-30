@@ -1,5 +1,8 @@
 var express = require('express'),
     status = require('http-status'),
+    multer = require('multer'),
+    fs = require('fs'),
+    upload = multer({ dest: 'public/images/incidents' }),
     bodyparser = require('body-parser');
 
 module.exports = function(wagner) {
@@ -73,6 +76,38 @@ module.exports = function(wagner) {
                 .exec(handleMany.bind(null, 'incidents', resp));
         };
     }));
+
+    // ========= Uploads =========
+    var upFields = upload.fields([ { name: 'file', maxCount: 1 }, { name: 'photos', maxCount: 4 } ]);
+    api.post('/photos', upload.array('photos', 4), function(req, resp) {
+        var file = null,
+            i = 0;
+
+        function removeTmpFiles() {
+            for (i = 0; i < req.files.length; i++)
+                fs.unlink(file.path);
+        }
+
+        //console.log('BODY');
+        //console.log(req.files);
+        //console.log('end BODY');
+
+        for (i = 0; i < req.files.length; i++) {
+            if ( req.files[i].mimetype.indexOf('image/') == -1 ) {
+                removeTmpFiles();
+
+                return resp
+                    .status(status.BAD_REQUEST)
+                    .json({ error: 'Must upload a valid image. Error with file ' + req.files[i].originalname });
+            }
+        }
+
+        for (i = 0; i < req.files.length; i++) {
+            fs.rename(req.files[i].path, 'public/images/incidents/' + req.files[i].originalname); 
+        }
+
+        return resp.status(200).json({ files: req.files.length });
+    });
 
     return api;
 };
