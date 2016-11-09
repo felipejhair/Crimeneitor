@@ -1,0 +1,23 @@
+{
+  "name": "crimeneitor",
+  "description": "maps for crimes",
+  "main": "index.js",
+  "authors": [
+    "JuanKman94 <juan.carlos.menonita@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "maps",
+    "mean",
+    "crimes"
+  ],
+  "homepage": "https://github.com/felipejhair/Crimeneitor",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
