@@ -1,11 +1,11 @@
 <h3>{{ sesgo }} </h3>
 <article>
     <ng-map center="25.6592062,-100.2840808" zoom="10" style='max-width: 600px;'>
-        <marker position="25.6592062,-100.2840808" title="Hello World!"></marker>
         <marker
-            ng-repeat="marker in markers"
-            position="{{ marker.uglyPos }}"
-            title="Gola"
+            ng-repeat="incident in incidents"
+            position="{{ incident.pos }}"
+            on-click="showIncident()"
+            incident="{{ incident }}"
         ></marker>
     </ng-map>
 </article>

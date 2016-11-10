@@ -32,15 +32,18 @@ app.directive('crimeMap', function() {
                 console.error('Error:', error);
             });
 
+            $scope.showIncident = function(ev) {
+                $scope.incident = this.incident;
+            };
+
             function addMarkers(incidents) {
-                $scope.markers = [];
+                $scope.incidents = [];
 
                 NgMap.getMap().then(function(map) {
                     angular.forEach(incidents, function(incident, index, arr) {
-                        //var latLng = { lat: incident.geo[1], lng: incident.geo[0] };
-                        incident.uglyPos = incident.geo[1] + "," + incident.geo[0];
+                        incident.pos = [ incident.geo[1], incident.geo[0] ];
 
-                        $scope.markers.push(incident);
+                        $scope.incidents.push(incident);
                     });
                 });
             }

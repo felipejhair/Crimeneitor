@@ -8,3 +8,15 @@ body {
 
 header {
 }
+
+.crime-map {
+    article, aside {
+        width: 45%;
+        float: left;
+    }
+
+    aside {
+        margin: 0;
+        padding: 0 1.1em;
+    }
+}
