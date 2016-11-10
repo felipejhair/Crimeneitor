@@ -1,0 +1,32 @@
+<h3>{{ sesgo }} </h3>
+<article>
+    <ng-map center="25.6592062,-100.2840808" zoom="10" style='max-width: 600px;'>
+        <marker position="25.6592062,-100.2840808" title="Hello World!"></marker>
+        <marker
+            ng-repeat="marker in markers"
+            position="{{ marker.uglyPos }}"
+            title="Gola"
+        ></marker>
+    </ng-map>
+</article>
+
+<aside ng-show="incident != null">
+    <h2>Incidente</h2>
+    <p>{{ incident.description }}</p>
+
+    <h3>Asaltantes</h3>
+    <ol>
+        <li ng-repeat="burglar in incident.burglars">
+            <b>Edad</b>: {{ burglar.age }} <br>
+            <b>Género:</b>: {{ burglar.gender }} <br>
+            <b>Descripción</b>: {{ burglar.description }}
+        </li>
+    </ol>
+
+    <h3>Imágenes</h3>
+    <ul ng-if="incident.images.length > 0">
+        <li ng-repeat="image in incident.images">
+            <img src="{{ image }}" alt="{{ incident.description }}">
+        </li>
+    </ul>
+</aside>

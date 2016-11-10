@@ -46,12 +46,12 @@ gulp.task('browserify:js', function() {
 gulp.task('browserify', [ 'browserify:templates', 'browserify:html', 'browserify:js', 'browserify:sass' ]);
 
 gulp.task('watch:client', [ 'browsersync' ], function() {
-    //gulp.watch(config.watch.js, [ 'browserify:js' ]);
-    //gulp.watch(config.watch.sass, [ 'browserify:sass' ]);
-    //gulp.watch(config.watch.html, [ 'browserify:html' ] );
-    //gulp.watch(config.watch.templates, [ 'browserify:templates' ] );
+    gulp.watch(config.watch.js, [ 'browserify:js' ]);
+    gulp.watch(config.watch.sass, [ 'browserify:sass' ]);
+    gulp.watch(config.watch.html, [ 'browserify:html' ] );
+    gulp.watch(config.watch.templates, [ 'browserify:templates' ] );
 
-    gulp.watch(config.watch.all, [ 'browserify' ], function() {
-        browsersync.reload();
-    });
+    //gulp.watch(config.watch.all, [ 'browserify' ], function() {
+    //    browsersync.reload();
+    //});
 });

@@ -1,11 +1,14 @@
-var server = require('./server')(), // returns express instance
+var express = require('express'), // returns express instance
+    app = express(),
     wagner = require('wagner-core');
 
 require('./schema/models')(wagner);
 
-wagner.invoke(require('./auth'), { app: server });
+app.use(express.static('./public', { maxAge: 4 * 60 * 60 * 1000 /* 4 hours? */ }));
 
-server.use('/api/v1', require('./api')(wagner));
+wagner.invoke(require('./auth'), { app: app });
 
-server.listen(3000);
+app.use('/api/v1', require('./api')(wagner));
+
+app.listen(3000);
 console.log('Server listening on port 3000');
