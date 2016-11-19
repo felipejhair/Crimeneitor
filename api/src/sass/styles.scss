@@ -1,0 +1,22 @@
+body {
+    width: 90%;
+    margin: 1em auto;
+    background-color: black;
+    color: #0f0;
+    text-shadow: 0 0 10px #0f0;
+}
+
+header {
+}
+
+.crime-map {
+    article, aside {
+        width: 45%;
+        float: left;
+    }
+
+    aside {
+        margin: 0;
+        padding: 0 1.1em;
+    }
+}
