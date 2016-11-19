@@ -1,3 +1,18 @@
 {
-  "generatorVersion": "1.0.0"
+  "paths": {
+    "source": {
+      "common": "src",
+      "web": "src-web",
+      "hybrid": "src-hybrid",
+      "javascript": "js",
+      "styles": "css",
+      "themes": "themes"
+    },
+    "staging": {
+      "web": "web",
+      "hybrid": "hybrid",
+      "themes": "themes"
+    }
+  },
+  "generatorVersion": "2.2.0"
 }
