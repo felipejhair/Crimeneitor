@@ -11,6 +11,7 @@ describe('Incident API', function() {
     var server,
         Incident;
 
+
     before(function() {
         var app = express();
         var models = require('../schema/models')(wagner);
@@ -118,6 +119,7 @@ describe('Incident API', function() {
 
             assert.doesNotThrow(function() {
                 results = JSON.parse(resp.text).incidents;
+                console.log(results)
             });
 
             assert.equal(results.length, 5);
@@ -141,6 +143,8 @@ describe('Incident API', function() {
             assert.doesNotThrow(function() {
                 result = JSON.parse(resp.text);
             });
+
+            console.log(result);
 
             assert.equal(result.incidents.length, 2);
             assert.equal(result.incidents[0].burglars.length, 3);

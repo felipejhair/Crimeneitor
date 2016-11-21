@@ -29,7 +29,9 @@ requirejs.config(
     'signals': 'libs/js-signals/signals',
     'login' : 'login',
     'googmap' : 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAhrGjmVYArA9XebG4rnkwzPq3GHw329Hs&callback=getLocation',
-    'map' : 'gmaps'
+    'googmap2' : 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAhrGjmVYArA9XebG4rnkwzPq3GHw329Hs&callback=getMap',
+    'map' : 'gmaps',
+    'insert' : 'Insert'
   }
   //endinjector
   ,

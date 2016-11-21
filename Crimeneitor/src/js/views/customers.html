@@ -2,9 +2,44 @@
  Copyright (c) 2014, 2016, Oracle and/or its affiliates.
  The Universal Permissive License (UPL), Version 1.0
  -->
+  <link rel="stylesheet" href="css/override.css" type="text/css"/>
+
 <div class="oj-hybrid-padding">
-  <h3>Area de contenido de Ingresar</h3>
-  <div>
-      Posiblemente se muestren opciones para ingresar datos a la zona.
+  <h3>Ingresar incidente en</h3>
+  <div class="oj-flex oj-flex-items-pad">
+  <div class="oj-sm-12 oj-md-6 oj-xl-6 oj-flex-item" id="mapholder"></div>
+  <div class="oj-sm-12 oj-md-6 oj-xl-6 oj-flex-item">
+	<label for="nombre">Incidente</label>
+  	 <select id="nombre" data-bind="ojComponent: {component: 'ojSelect',
+                                                    rootAttributes: {style:'max-width:50em'}}">
+	    <option value="ro">Robo</option>
+	    <option value="acc">Accidente</option>
+	    <option value="as">Asesinato</option>
+	    <option value="dn">Desastre Natural</option>
+	    <option value="man">Manifestacion</option>
+	    <option value="bry">Bryan</option>
+	    <option value="kev">Kevin</option>
+  	</select>
+  	<label for="descripcion">Descripcion</label>
+  	<textarea id="descripcion"
+  			  rows="4" cols="50"
+  			  maxlength="100"
+  			  placeholder="Maximo 100 caracteres" 
+            data-bind="ojComponent: {component: 'ojTextArea'}"></textarea>
+  	<label for="nombreP">Nombre</label>
+  	<input id="nombreP" name="nombreP" type="text" data-bind="ojComponent: {component: 'ojInputText'}"/>
+  	<label for="fecha">Fecha</label>
+    <input id="fecha" data-bind="ojComponent: {component: 'ojInputDateTime'}"/>
+    <label for="gravedad">Gravedad de incidente</label>
+    <select id="gravedad" data-bind="ojComponent: {component: 'ojSelect',
+                                                    rootAttributes: {style:'max-width:50em'}}">
+    <option value="alta">Alta</option>
+    <option value="media">Media</option>
+    <option value="baja">Baja</option>
+  </select>
+
+<br><br>
+<input type="submit"  id="btn_submit" name="submit" value="Send"/>
   </div>
+  <div class="oj-flex oj-flex-items-pad">
 </div>

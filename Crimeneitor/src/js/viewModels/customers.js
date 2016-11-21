@@ -5,7 +5,7 @@
 /*
  * Your customer ViewModel code goes here
  */
-define(['ojs/ojcore', 'knockout', 'jquery'],
+define(['ojs/ojcore', 'knockout', 'jquery', 'insert', 'googmap2', 'map', 'ojs/ojinputtext', 'ojs/ojdatetimepicker', 'ojs/ojtimezonedata','ojs/ojselectcombobox'],
  function(oj, ko, $) {
   
     function CustomerViewModel() {
@@ -38,7 +38,10 @@ define(['ojs/ojcore', 'knockout', 'jquery'],
        * @param {boolean} info.fromCache - A boolean indicating whether the module was retrieved from cache.
        */
       self.handleAttached = function(info) {
-        // Implement if needed
+        ajaxFunction();
+        getMap();
+        but();
+
       };
 
 
