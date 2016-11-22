@@ -1,7 +1,8 @@
-
+var city;
  	    function getLocation(){
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
+
       } else {
       alert("Geolocation is not supported by this browser.");
       }
@@ -90,8 +91,37 @@
         radius: 4000
        });
 
+     var geocoder = new google.maps.Geocoder;
+
+      geocodeLatLng(geocoder,map,myPos);
+
     }
 
+
+      function geocodeLatLng(geocoder, map, myPos) {
+        var latlng = myPos;
+
+        geocoder.geocode({'location': latlng}, function(results, status) {
+          if (status === 'OK') {
+            if (results[1]) {
+              map.setZoom(11);
+              var marker = new google.maps.Marker({
+                position: latlng,
+                map: map
+              });
+              area(results[1].address_components[1].long_name);
+              $('#nombre2').on('change', function() {
+            showUser($("#nombre2").val(),results[1].address_components[1].long_name);
+        });
+              
+            } else {
+              window.alert('No results found');
+            }
+          } else {
+            window.alert('Geocoder failed due to: ' + status);
+          }
+        });
+      }
 
 
       function getMap(){
@@ -103,10 +133,38 @@
   }
 
 function showMap(position) {
+    var myPos2 = {lat: position.coords.latitude, lng: position.coords.longitude};
     var latlon = position.coords.latitude + "," + position.coords.longitude;
 
     var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="
     +latlon+"&zoom=14&size=400x300&sensor=false";
+         var geocoder = new google.maps.Geocoder;
+
     document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
+    geocodeLatLng2(geocoder,myPos2)
 
 }
+
+function geocodeLatLng2(geocoder, myPos) {
+        var latlng = myPos;
+
+        geocoder.geocode({'location': latlng}, function(results, status) {
+          if (status === 'OK') {
+            if (results[1]) {
+              var marker = new google.maps.Marker({
+                position: latlng,
+              });
+              but(results[1].address_components[1].long_name);
+              $('#nombre2').on('change', function() {
+            showUser($("#nombre2").val(),results[1].address_components[1].long_name);
+        });
+              
+            } else {
+              window.alert('No results found');
+            }
+          } else {
+            window.alert('Geocoder failed due to: ' + status);
+          }
+        });
+      }
+

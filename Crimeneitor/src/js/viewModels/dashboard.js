@@ -6,8 +6,9 @@
  * Your dashboard ViewModel code goes here
  */
 
-define(['ojs/ojcore', 'knockout', 'jquery', 'googmap', 'map', 'ojs/ojrouter', 'ojs/ojknockout'],
+define(['ojs/ojcore', 'knockout', 'jquery', 'googmap', 'map', 'select', 'ojs/ojrouter', 'ojs/ojknockout', 'ojs/ojselectcombobox'],
  function(oj, ko, $) {
+
   
     function DashboardViewModel() {
       var self = this;
@@ -17,22 +18,22 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'googmap', 'map', 'ojs/ojrouter', 'o
 
       
       self.handleActivated = function(info) {
-        // Implement if needed
       };
 
 
       self.handleAttached = function(info) {
-        getLocation();
-      };
+                  getLocation();
+
+
+        
+     };
 
 
       self.handleBindingsApplied = function(info) {
-        // Implement if needed
       };
 
 
       self.handleDetached = function(info) {
-        // Implement if needed
       };
     }
 

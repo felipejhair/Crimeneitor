@@ -7,6 +7,7 @@
  */
 define(['ojs/ojcore', 'knockout', 'jquery', 'insert', 'googmap2', 'map', 'ojs/ojinputtext', 'ojs/ojdatetimepicker', 'ojs/ojtimezonedata','ojs/ojselectcombobox'],
  function(oj, ko, $) {
+
   
     function CustomerViewModel() {
       var self = this;
@@ -25,7 +26,6 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'insert', 'googmap2', 'map', 'ojs/oj
        * the promise is resolved
        */
       self.handleActivated = function(info) {
-        // Implement if needed
       };
 
       /**
@@ -39,8 +39,8 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'insert', 'googmap2', 'map', 'ojs/oj
        */
       self.handleAttached = function(info) {
         ajaxFunction();
-        getMap();
-        but();
+                  getMap();
+
 
       };
 

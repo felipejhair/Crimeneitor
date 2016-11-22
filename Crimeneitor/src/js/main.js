@@ -31,7 +31,8 @@ requirejs.config(
     'googmap' : 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAhrGjmVYArA9XebG4rnkwzPq3GHw329Hs&callback=getLocation',
     'googmap2' : 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAhrGjmVYArA9XebG4rnkwzPq3GHw329Hs&callback=getMap',
     'map' : 'gmaps',
-    'insert' : 'Insert'
+    'insert' : 'Insert',
+    'select' : 'Select'
   }
   //endinjector
   ,
